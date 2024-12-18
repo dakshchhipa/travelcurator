@@ -167,6 +167,6 @@ if (process.env.NODE_ENV_CUSTOM === "production") {
 }
 
 //port
-app.listen(8000, () => {
+app.listen(4000, () => {
   console.log("listening on 8000");
 });
