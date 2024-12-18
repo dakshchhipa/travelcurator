@@ -22,11 +22,14 @@ const hashPassword = (password) => {
   return bcryptjs.hashSync(password, 10); // Synchronously hash the password with salt rounds of 10
 };
 
-app.use(
-  cors({
-    origin: process.env.SERVER_URL,
-  })
-);
+const corsOptions = {
+  origin: ["http://localhost:5173"], // Add Vite's dev server origin
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
+
 const insertSampleData = async () => {
   try {
     await mongoose
